@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script>
+
+		var encry = '';
+		
+		function encriptar(elemento){
+			var texto = document.getElementsByTagName("input")[0].value;
+			encry = btoa(texto)
+			for (i=0; i<=49; i++){
+				var codigo = btoa(encry);
+				encry = codigo;
+			}
+			document.getElementById("encriptado").innerHTML = encry;
+			return encry;
+		};
+
+		function desencriptar(elemento){
+			for (i=0; i<=50; i++){
+				var codigo = atob(encry);
+				encry = codigo;
+			}
+			document.getElementById("encriptado").innerHTML = encry;
+		};
+	</script>
+</head>
+<body>
+	  
+	<div>
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+					<span class="login100-form-title p-b-49">
+						Encriptacion
+					</span>
+					<div>
+						<h3>Texto A Encriptar</h3>
+						<input class="input100" type="text" placeholder="Clave">
+					</div>
+
+					<div>
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" onclick="encriptar(this)">
+								Encriptar
+							</button>
+						</div>
+					</div>
+					<br>
+					<div>
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" onclick="desencriptar(this)">
+								Desencriptar
+							</button>
+						</div>
+						<br>
+						
+					</div>
+			</div>
+		</div>
+	</div>
+	<container>
+		<p id="encriptado">
+		</p>
+	</container>
+	
+</body>
+</html>
